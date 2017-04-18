@@ -1,0 +1,24 @@
+# Software Engineering Group 11 UI Prototype
+
+## Internet Connection required for usage of Bootstrap Themes and CSS styling
+
+## Group Members
+* Alex Morrison
+* Thomas Dickinson
+* Kyle Martin
+* Patric Chang
+
+## Usage
+1. Download .zip file and extract to a directory
+2. Open `index.html` in Firefox or Google Chrome
+3. To simulate registering an account, click the `Register` button
+4. To simulate signing into an account, click the `Sign In` button
+5. When registering, input sudo account information and click `Register` to be
+taken to an account page
+6. When signing in, input sudo account information (can be anything) to be taken
+to an account page
+7. Use the dropdown box on the navigation bar to preform account specific
+actions based on the functional user requirements found in the Requirement
+Document
+8. Click `Sign Out` on the navigation bar to simulate signing out of the account
+and to be taken back to the landing page

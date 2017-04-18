@@ -151,3 +151,6 @@ Binding(COMMAND+SHIFT+F10,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2017-04-18 13:00:31.042
+!MESSAGE cacheFile=file:/Users/alex/eclipse/java-mars/Eclipse.app/Contents/MacOS/file:/Users/alex/eclipse/java-mars/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.wst.server.discovery/serverAdapterSitesDetails.xml
