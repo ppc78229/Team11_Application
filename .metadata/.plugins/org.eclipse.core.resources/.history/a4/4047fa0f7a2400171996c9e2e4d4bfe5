@@ -27,4 +27,10 @@ public class DbAccess {
 		return con;
 	} // connect
 	
+	public int insert(Connection con, PreparedStatement query) {
+		int rowsAffected = 0;
+		
+		return rowsAffected;
+	}
+
 }
