@@ -34,3 +34,13 @@
 0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:28:40 -0400] "GET /STEPS/favicon.ico HTTP/1.1" 404 1028
 0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:28:45 -0400] "GET /STEPS/resources/html/account.html HTTP/1.1" 200 2917
 0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:28:45 -0400] "GET /STEPS/resources/html/resources/css/index.css HTTP/1.1" 404 1082
+127.0.0.1 - - [18/Apr/2017:13:30:11 -0400] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:12 -0400] "GET /assets/js/ie-emulation-modes-warning.js HTTP/1.1" 404 1072
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:12 -0400] "GET /dist/js/bootstrap.min.js HTTP/1.1" 404 1042
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:12 -0400] "GET /assets/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1076
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:12 -0400] "GET /assets/js/ie-emulation-modes-warning.js HTTP/1.1" 404 1072
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:12 -0400] "GET /dist/js/bootstrap.min.js HTTP/1.1" 404 1042
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:12 -0400] "GET /assets/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1076
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:15 -0400] "GET /STEPS/resources/html/resources/css/index.css HTTP/1.1" 404 1082
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:20 -0400] "GET /STEPS/resources/html/addsport.html HTTP/1.1" 200 3438
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:13:30:20 -0400] "GET /STEPS/resources/html/resources/css/index.css HTTP/1.1" 404 1082
