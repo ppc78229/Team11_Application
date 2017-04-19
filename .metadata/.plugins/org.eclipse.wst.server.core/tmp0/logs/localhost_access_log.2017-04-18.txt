@@ -243,3 +243,10 @@
 0:0:0:0:0:0:0:1 - - [18/Apr/2017:17:35:51 -0400] "GET /assets/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1076
 0:0:0:0:0:0:0:1 - - [18/Apr/2017:17:35:54 -0400] "GET /STEPS/resources/html/signin.html HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [18/Apr/2017:17:36:01 -0400] "POST /STEPS/resources/html/LoginServlet HTTP/1.1" 200 17
+127.0.0.1 - - [18/Apr/2017:18:12:20 -0400] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:18:12:20 -0400] "GET /assets/js/ie-emulation-modes-warning.js HTTP/1.1" 404 1072
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:18:12:20 -0400] "GET /assets/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1076
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:18:12:20 -0400] "GET /dist/js/bootstrap.min.js HTTP/1.1" 404 1042
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:18:12:20 -0400] "GET /assets/js/ie-emulation-modes-warning.js HTTP/1.1" 404 1072
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:18:12:20 -0400] "GET /dist/js/bootstrap.min.js HTTP/1.1" 404 1042
+0:0:0:0:0:0:0:1 - - [18/Apr/2017:18:12:20 -0400] "GET /assets/js/ie10-viewport-bug-workaround.js HTTP/1.1" 404 1076

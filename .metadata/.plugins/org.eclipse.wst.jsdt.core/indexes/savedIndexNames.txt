@@ -2,7 +2,6 @@ INDEX VERSION 1.3+/Users/alex/Documents/STEPS/Team11_Application/.metadata/.plug
 1114384799.index
 1253186101.index
 4203258520.index
-922554802.index
 476976552.index
 3512780308.index
 3903338463.index
