@@ -1,6 +1,9 @@
 package com.steps.persistencelayer;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PersistenceLayer {
 	
@@ -15,6 +18,28 @@ public class PersistenceLayer {
 		connection = database.connect();
 	}
 	
-	// queries go here
+	/**
+	 * 
+	 * @param email
+	 * @param privilege
+	 * @return
+	 */
+	public ResultSet getUserPassword(String email, String privilege) {
+		ResultSet results = null;
+		PreparedStatement getPassword = null;
+		String query = "SELECT * FROM STEPS.user WHERE email=? AND privileges=?";
+		
+		try {
+			getPassword = connection.prepareStatement(query);
+			getPassword.setString(1, email);
+			getPassword.setString(2, privilege);
+			
+			results = database.retrieve(connection, getPassword);
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return results;
+	}
 
 }
