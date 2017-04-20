@@ -1,3 +1,8 @@
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,13 +26,17 @@
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-  </head>
+   </head>
   <body>
+
+    <sql:setDataSource var="steps" driver="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://localhost:3306/STEPS"
+      user="root" password="root" />
+
+    <sql:query dataSource="${steps}" var="result">
+      SELECT name FROM STEPS.sport;
+    </sql:query>
+
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -71,10 +80,9 @@
 
         <label for="sportSelect">Sport</label>
         <select class="form-control" id="sportSelect">
-          <option>Tennis</option>
-          <option>Football</option>
-          <option>Soccer</option>
-          <option>Basketball</option>
+          <c:forEach var="row" items="${result.rows}">
+            <option><c:out value="${row.name}" /></option>
+          </c:forEach>
         </select>
         </br>
 
