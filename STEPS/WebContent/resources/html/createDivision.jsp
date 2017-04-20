@@ -51,16 +51,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class=""><a href="account.html">Home</a></li>
+            <li class=""><a href="adminAccount.html">Home</a></li>
             <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="addsport.html">Add Sport</a></li>
-                <li><a href="addPlayer.html">Add Player</a></li>
-                <li><a href="createTeam.html">Create Team</a></li>
-                <li><a href="createBracket.html">Create Bracket</a></li>
-                <li><a href="createDivision.html">Create Division</a></li>
-                <li><a href="changePrivileges.html">Change Privileges</a></li>
+                <li><a href="createDivision.jsp">Create Division</a></li>
+                <li><a href="createBracket.html">Create Tournament</a></li>
+                <li><a href="deleteSport.html">Remove a Sport</a></li>
+                <li><a href="deleteDivision.html">Remove a Division</a></li>
+                <li><a href="deleteTournament.html">Remove a Tournament</a></li>
               </ul>
             </li>
           </ul>

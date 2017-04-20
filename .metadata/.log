@@ -2454,3 +2454,18 @@ org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://ww
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 !SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2017-04-20 16:14:06.529
 !MESSAGE No repository found at http://www.pramati.com/downloads/eclipse/updates/.
+
+!ENTRY org.eclipse.ui 4 0 2017-04-20 16:46:04.027
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.ui 4 0 2017-04-20 16:52:50.918
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.ui 4 0 2017-04-20 16:59:06.123
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
