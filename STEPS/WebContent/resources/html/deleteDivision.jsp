@@ -1,8 +1,13 @@
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Create Divison</title>
+    <title>Remove a Division</title>
     <link rel="stylesheet" type="text/css" href="resources/css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
@@ -20,14 +25,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
   </head>
   <body>
+
+    <sql:setDataSource var="steps" driver="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://localhost:3306/STEPS"
+      user="root" password="root" />
+
+    <sql:query dataSource="${steps}" var="result">
+      SELECT name FROM STEPS.division;
+    </sql:query>
+
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -46,12 +54,12 @@
             <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="addsport.html">Add Sport</a></li>
-                <li><a href="addPlayer.html">Add Player</a></li>
-                <li><a href="createTeam.html">Create Team</a></li>
-                <li><a href="createBracket.html">Create Bracket</a></li>
-                <li><a href="createDivision.html">Create Division</a></li>
-                <li><a href="changePrivileges.html">Change Privileges</a></li>
+                <li><a href="addsport.jsp">Add Sport</a></li>
+                <li><a href="createDivision.jsp">Create Division</a></li>
+                <li><a href="createBracket.jsp">Create Tournament</a></li>
+                <li><a href="deleteSport.jsp">Remove a Sport</a></li>
+                <li><a href="deleteDivision.jsp">Remove a Division</a></li>
+                <li><a href="deleteTournament.jsp">Remove a Tournament</a></li>
               </ul>
             </li>
           </ul>
@@ -61,39 +69,23 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
     <div class="container">
 
       <form class="form-signin">
-        <h2 class="form-signin-heading">Create a Division</h2>
-        <label for="inputName">Division Name</label>
-        <input type="text" id="inputName" class="form-control" placeholder="Divsion Name" required autofocus>
-        </br>
-
-        <label for="sportSelect">Sport</label>
-        <select class="form-control" id="sportSelect">
-          <option>Tennis</option>
-          <option>Football</option>
-          <option>Soccer</option>
-          <option>Basketball</option>
+        <h2 class="form-signin-heading">Remove Division</h2>
+        <label for="divisionSelect">Division</label>
+        <select class="form-control" id="divisionSelect">
+          <c:forEach var="row" items="${result.rows}">
+            <option><c:out value="${row.name}" /></option>
+          </c:forEach>
         </select>
-        </br>
-
-        <div class="checkbox">
-          <label><input type="checkbox" value="">Sport is Indoor</label>
-        </div>
-        </br>
-
-        <label for="maximumTeams">Maximum Number of Teams</label>
-        <input type="number" id="maximumTeams" class="form-control" placeholder="Maximum Number of Teams" required autofocus>
-        </br>
-
-        <label for="maximumPlayers">Maximum Number of Players on Teams</label>
-        <input type="number" id="maximumPlayers" class="form-control" placeholder="Maximum Number of Players" required autofocus>
-        </br>
-
-        <a href="account.html" class="btn btn-lg btn-primary btn-block">Create Division</a>
+      </br>
+      </br>
+        <a href="account.html" class="btn btn-lg btn-primary btn-block">Remove Division</a>
       </form>
 
     </div> <!-- /container -->
+
   </body>
 </html>

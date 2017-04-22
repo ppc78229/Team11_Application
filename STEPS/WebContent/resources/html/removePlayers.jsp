@@ -1,8 +1,13 @@
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Create Divison</title>
+    <title>Remove Players from their Team</title>
     <link rel="stylesheet" type="text/css" href="resources/css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
@@ -20,14 +25,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
   </head>
   <body>
+    <sql:setDataSource var="steps" driver="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://localhost:3306/STEPS"
+      user="root" password="root" />
+
+    <sql:query dataSource="${steps}" var="playerResult">
+      SELECT name FROM STEPS.user WHERE privileges='player';
+    </sql:query>
+
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -38,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Administrator</a>
+          <a class="navbar-brand" href="#">Coach</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -46,12 +53,8 @@
             <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="addsport.html">Add Sport</a></li>
-                <li><a href="addPlayer.html">Add Player</a></li>
-                <li><a href="createTeam.html">Create Team</a></li>
-                <li><a href="createBracket.html">Create Bracket</a></li>
-                <li><a href="createDivision.html">Create Division</a></li>
-                <li><a href="changePrivileges.html">Change Privileges</a></li>
+                <li><a href="createTeam.jsp">Create a Team</a></li>
+                <li><a href="removePlayers.jsp">Remove Players from a Team</a></li>
               </ul>
             </li>
           </ul>
@@ -61,39 +64,21 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container">
+      <div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Create a Division</h2>
-        <label for="inputName">Division Name</label>
-        <input type="text" id="inputName" class="form-control" placeholder="Divsion Name" required autofocus>
-        </br>
+        <form class="form-signin">
+          <h2 class="form-signin-heading">Remove Players</h2>
 
-        <label for="sportSelect">Sport</label>
-        <select class="form-control" id="sportSelect">
-          <option>Tennis</option>
-          <option>Football</option>
-          <option>Soccer</option>
-          <option>Basketball</option>
-        </select>
-        </br>
+          <label for="playerSelect">Select Players(Use CTRL to select multiple)</label>
+          <select multiple class="form-control" id="playerSelect">
+            <c:forEach var="row" items="${playerResult.rows}">
+              <option><c:out value="${row.name}" /></option>
+            </c:forEach>
+          </select>
+          </br>
+          <a href="account.html" class="btn btn-lg btn-primary">Remove Players</a>
+        </form>
 
-        <div class="checkbox">
-          <label><input type="checkbox" value="">Sport is Indoor</label>
-        </div>
-        </br>
-
-        <label for="maximumTeams">Maximum Number of Teams</label>
-        <input type="number" id="maximumTeams" class="form-control" placeholder="Maximum Number of Teams" required autofocus>
-        </br>
-
-        <label for="maximumPlayers">Maximum Number of Players on Teams</label>
-        <input type="number" id="maximumPlayers" class="form-control" placeholder="Maximum Number of Players" required autofocus>
-        </br>
-
-        <a href="account.html" class="btn btn-lg btn-primary btn-block">Create Division</a>
-      </form>
-
-    </div> <!-- /container -->
+      </div> <!-- /container -->
   </body>
 </html>

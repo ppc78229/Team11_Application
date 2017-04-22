@@ -1,3 +1,8 @@
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,6 +27,19 @@
     crossorigin="anonymous"></script>
   </head>
   <body>
+
+    <sql:setDataSource var="steps" driver="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://localhost:3306/STEPS"
+      user="root" password="root" />
+
+    <sql:query dataSource="${steps}" var="resultSport">
+      SELECT name FROM STEPS.sport;
+    </sql:query>
+
+    <sql:query dataSource="${steps}" var="resultTeams">
+      SELECT name FROM STEPS.team;
+    </sql:query>
+
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -40,12 +58,12 @@
             <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="addsport.html">Add Sport</a></li>
-                <li><a href="addPlayer.html">Add Player</a></li>
-                <li><a href="createTeam.html">Create Team</a></li>
-                <li><a href="createBracket.html">Create Bracket</a></li>
-                <li><a href="createDivision.html">Create Division</a></li>
-                <li><a href="changePrivileges.html">Change Privileges</a></li>
+                <li><a href="addsport.jsp">Add Sport</a></li>
+                <li><a href="createDivision.jsp">Create Division</a></li>
+                <li><a href="createBracket.jsp">Create Tournament</a></li>
+                <li><a href="deleteSport.jsp">Remove a Sport</a></li>
+                <li><a href="deleteDivision.jsp">Remove a Division</a></li>
+                <li><a href="deleteTournament.jsp">Remove a Tournament</a></li>
               </ul>
             </li>
           </ul>
@@ -62,18 +80,16 @@
         <h2 class="form-signin-heading">Create a Bracket</h2>
         <label for="sportSelect">Sport</label>
         <select class="form-control" id="sportSelect">
-          <option>Tennis</option>
-          <option>Football</option>
-          <option>Soccer</option>
-          <option>Basketball</option>
+          <c:forEach var="row" items="${resultSport.rows}">
+            <option><c:out value="${row.name}" /></option>
+          </c:forEach>
         </select>
       </br>
-        <label for="divisionSelect">Select Division</label>
-        <select multiple class="form-control" id="divisionSelect">
-          <option>East</option>
-          <option>West</option>
-          <option>North</option>
-          <option>South</option>
+        <label for="teamSelect">Select Teams</label>
+        <select multiple class="form-control" id="teamSelect">
+          <c:forEach var="row" items="${resultTeams.rows}">
+            <option><c:out value="${row.name}" /></option>
+          </c:forEach>
         </select>
       </br>
         <a href="account.html" class="btn btn-lg btn-primary btn-block">Create Bracket</a>
